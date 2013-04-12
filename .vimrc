@@ -15,7 +15,7 @@ endif
 if filereadable( expand( '~/.vim/neobundle.vimrc' ) ) && filereadable( expand( '~/.vim/bundle/neobundle.vim/README.md' ) )
 	source ~/.vim/neobundle.vimrc
 else
-	echo "NeoBundle isn't installed!"
+	echo "Type 'git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim'."
 endif
 
 
