@@ -30,7 +30,7 @@ elif [ `uname -s` = "SunOS" ]; then
 		fi
 	fi
 else
-	unalias up
+	unalias up 2>/dev/null
 fi
 
 if [ -e "$HOME/.bash" ]; then
