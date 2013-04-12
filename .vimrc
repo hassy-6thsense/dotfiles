@@ -12,7 +12,7 @@ if filereadable( expand( '~/.vim/color.vimrc' ) )
 endif
 
 "----------neobundle----------
-if filereadable( expand( '~/.vim/neobundle.vimrc' ) )
+if filereadable( expand( '~/.vim/neobundle.vimrc' ) ) && filereadable( expand( '~/.vim/bundle/neobundle.vim/README.md' ) )
 	source ~/.vim/neobundle.vimrc
 else
 	echo "NeoBundle isn't installed!"
