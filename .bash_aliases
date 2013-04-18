@@ -21,11 +21,11 @@ if [ -f "/etc/debian_version" ]; then
 	alias up='sudo apt-get update && sudo apt-get upgrade'
 elif [ -f "/etc/redhat-version" ]; then
 	alias up='sudo yum update'
-elif [ `uname -s` = "SunOS" ]; then
-	if [ `uname -r` = "5.11" ]; then
+elif [ $(uname -s) = "SunOS" ]; then
+	if [ $(uname -r) = "5.11" ]; then
 		alias up='sudo pkg update'
 	else
-		if [ -f `which pkgutil` ]; then
+		if [ -f $(which pkgutil) ]; then
 			alias up='sudo pkgutil -U && sudo pkgutil -u'
 		fi
 	fi
@@ -34,7 +34,7 @@ else
 fi
 
 if [ -e "$HOME/.bash" ]; then
-	rcfiles=(`ls -a $HOME/.bash`)
+	local rcfiles=(`ls -a $HOME/.bash`)
 	for rcfile in ${rcfiles[@]}
 	do
 		if [ $rcfile != "." ] && [ $rcfile != ".." ]; then
