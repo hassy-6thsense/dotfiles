@@ -30,7 +30,7 @@ elif [ $(uname -s) = "SunOS" ]; then
 		fi
 	fi
 elif [ -f $(which port) ]; then
-	alias up='sudo port selfupdate'
+	alias up='sudo port sync && sudo port upgrade installed'
 else
 	unalias up 2>/dev/null
 fi
