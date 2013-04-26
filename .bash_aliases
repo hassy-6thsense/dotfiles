@@ -44,8 +44,12 @@ if [ -e "$HOME/.bash" ]; then
 fi
 
 # depend on username aliases
-source $HOME/.bash_own
+if [ -f "$HOME/.bash_own" ]; then
+	source $HOME/.bash_own
+fi
 
 # ssh aliases
-source $HOME/.bash_ssh
+if [ -f "$HOME/.bash_ssh" ]; then
+	source $HOME/.bash_ssh
+fi
 
