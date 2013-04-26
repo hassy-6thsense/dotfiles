@@ -29,6 +29,8 @@ elif [ $(uname -s) = "SunOS" ]; then
 			alias up='sudo pkgutil -U && sudo pkgutil -u'
 		fi
 	fi
+elif [ -f $(which port) ]; then
+	alias up='sudo port selfupdate'
 else
 	unalias up 2>/dev/null
 fi
