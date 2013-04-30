@@ -18,9 +18,3 @@ else
 	echo "Type 'git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim'."
 endif
 
-
-"set runtimepath+=~/.vim/
-"runtime! *.vimrc
-"if filereadable(expand('~/.vim/s.vimrc'))
-"	source ~/.vim/s.vimrc
-"endif
