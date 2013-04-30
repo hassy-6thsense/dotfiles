@@ -10,6 +10,7 @@ NeoBundle g:github . 'Shougo/neosnippet'
 NeoBundle g:github . 'Shougo/vimfiler'
 NeoBundle g:github . 'kana/vim-smartchr'
 NeoBundle g:github . 'thinca/vim-quickrun'
+NeoBundle g:github . 'vim-scripts/sudo.vim'
 filetype plugin indent on
 
 set runtimepath+=~/.vim/
