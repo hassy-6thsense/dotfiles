@@ -36,13 +36,15 @@ else
 fi
 
 if [ -e "$HOME/.bash" ]; then
-	local rcfiles=(`ls -a $HOME/.bash`)
+	rcfiles=(`ls -a $HOME/.bash`)
 	for rcfile in ${rcfiles[@]}
 	do
 		if [ $rcfile != "." ] && [ $rcfile != ".." ]; then
 			source $HOME/.bash/$rcfile
 		fi
 	done
+	unset rcfile
+	unset rcfiles
 fi
 
 # depend on username aliases
