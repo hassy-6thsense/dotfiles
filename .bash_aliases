@@ -29,7 +29,7 @@ elif [ $(uname -s) = "SunOS" ]; then
 			alias up='sudo pkgutil -U && sudo pkgutil -u'
 		fi
 	fi
-elif [ -f $(which port) ]; then
+elif [ -f $(which port 2>/dev/null) ]; then
 	alias up='sudo port sync && sudo port upgrade installed'
 else
 	unalias up 2>/dev/null
