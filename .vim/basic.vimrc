@@ -16,3 +16,8 @@ highlight SPACE cterm=underline ctermfg=lightred
 match SPACE /　/
 
 set nobackup
+
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp
+
