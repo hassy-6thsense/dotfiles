@@ -16,6 +16,27 @@ alias vbashrc='vim $HOME/.bashrc'
 alias vbash_aliases='vim $HOME/.bash_aliases'
 alias vvimrc='vim $HOME/.vimrc'
 
+function gitpull()
+{
+	if [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
+		git pull $1 $2
+	else
+		echo "usage: gitpull <repository> <refspec>"
+	fi
+}
+
+function gitpush()
+{
+	if [ $# -eq 3 ] && [ -n "$1" ] && [ -n "$2" ] && [ -n "$3" ]; then
+		git add .
+		git commit -m "$1"
+		git push $2 $3
+	else
+		echo "usage: gitpush <comment> <repository> <refspec>"
+	fi
+}
+
+
 # upコマンド
 if [ -f "/etc/debian_version" ]; then
 	alias up='sudo apt-get update && sudo apt-get upgrade'
