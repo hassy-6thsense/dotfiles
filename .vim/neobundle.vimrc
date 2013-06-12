@@ -13,6 +13,7 @@ NeoBundle g:github . 'kana/vim-smartchr'
 NeoBundle g:github . 'thinca/vim-quickrun'
 NeoBundle g:github . 'vim-scripts/sudo.vim'
 NeoBundle g:github . 'mattn/zencoding-vim'
+NeoBundle g:github . 'deton/jasegment.vim'
 filetype plugin indent on
 
 set runtimepath+=~/.vim/
