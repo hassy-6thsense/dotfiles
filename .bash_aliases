@@ -28,7 +28,7 @@ function gitpull()
 		elif [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
 			git pull $1 $2
 		else
-			echo "usage: gitpull <repository> <refspec>"
+			echo "usage: gitpull [<repository>] [<refspec>]"
 		fi
 	fi
 }
@@ -39,18 +39,23 @@ function gitpush()
 		echo "$PWD is not git directory."
 
 	else
-		git add .
 		if [ $# -eq 1 ] && [ -n "$1" ]; then
-			git commit -m "$1"
+			gitpull
+			git add .
+			git commit -am "$1"
 			git push origin master
 		elif [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
+			gitpull $2
+			git add .
 			git commit -m "$1"
 			git push $2 master
 		elif [ $# -eq 3 ] && [ -n "$1" ] && [ -n "$2" ] && [ -n "$3" ]; then
+			gitpull $2 $3
+			git add .
 			git commit -m "$1"
 			git push $2 $3
 		else
-			echo "usage: gitpush <comment> <repository> <refspec>"
+			echo "usage: gitpush <comment> [<repository>] [<refspec>]"
 		fi
 	fi
 }
