@@ -28,7 +28,7 @@ function gitpull()
 		elif [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
 			git pull $1 $2
 		else
-			echo "usage: gitpull [<repository>] [<refspec>]"
+			echo "usage: gitpull [<repository> [<refspec>]]"
 		fi
 	fi
 }
@@ -55,7 +55,7 @@ function gitpush()
 			git commit -m "$1"
 			git push $2 $3
 		else
-			echo "usage: gitpush <comment> [<repository>] [<refspec>]"
+			echo "usage: gitpush <comment> [<repository> [<refspec>]]"
 		fi
 	fi
 }
