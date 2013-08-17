@@ -75,7 +75,7 @@ elif [ $(uname -s) = "SunOS" ]; then
 		fi
 	fi
 elif [ -f $(which port 2>/dev/null) ]; then
-	alias up='sudo port sync && sudo port upgrade outdated'
+	alias up='sudo port -d sync && sudo port upgrade outdated'
 else
 	unalias up 2>/dev/null
 fi
