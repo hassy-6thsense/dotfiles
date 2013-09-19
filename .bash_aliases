@@ -41,15 +41,18 @@ function gitpush()
 	else
 		if [ $# -eq 1 ] && [ -n "$1" ]; then
 			gitpull
-			git commit -am "$1"
+			git add .
+			git commit -m "$1"
 			git push origin master
 		elif [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
 			gitpull $2
-			git commit -am "$1"
+			git add .
+			git commit -m "$1"
 			git push $2 master
 		elif [ $# -eq 3 ] && [ -n "$1" ] && [ -n "$2" ] && [ -n "$3" ]; then
 			gitpull $2 $3
-			git commit -am "$1"
+			git add .
+			git commit -m "$1"
 			git push $2 $3
 		else
 			echo "usage: gitpush <comment> [<repository> [<refspec>]]"
