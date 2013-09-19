@@ -2,11 +2,11 @@
 cd $(dirname $0)
 for dotfile in .?*
 do
-    if [ $dotfile != ".." ] && [ $dotfile != ".git" ] && [ $dotfile != "README.md" ] && [ $dotfile != ".gitignore" ]; then
-		if [ -e $dotfile ]; then
-			rm -ir "$HOME/$dotfile"
+    if [ ${dotfile} != "." ] && [ ${dotfile} != ".." ] && [ ${dotfile} != ".git" ] && [ ${dotfile} != ".gitignore" ]; then
+		if [ -e ${HOME}/${dotfile} ]; then
+			rm -ir "${HOME}/${dotfile}"
 		fi
-        ln -Fis "$PWD/$dotfile" $HOME
+        ln -vFis "${PWD}/${dotfile}" ${HOME}
     fi
 done
 
