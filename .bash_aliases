@@ -70,11 +70,11 @@ elif [ $(uname -s) = "SunOS" ]; then
 	if [ $(uname -r) = "5.11" ]; then
 		alias up='sudo pkg update'
 	else
-		if [ -f $(which pkgutil) ]; then
+		if [ -x "`which pkgutil`" ]; then
 			alias up='sudo pkgutil -U && sudo pkgutil -u'
 		fi
 	fi
-elif [ -f $(which port 2>/dev/null) ]; then
+elif [ -x "`which port`" ]; then
 	alias up='sudo port selfupdate && sudo port upgrade outdated'
 else
 	unalias up 2>/dev/null
