@@ -19,5 +19,5 @@ set nobackup
 
 set termencoding=utf-8
 set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,iso-2022-jp,sjis,cp932,euc-jp,cp20932,latin1
+set fileencodings=ucs-bom,utf-8,iso-2022-jp,sjis,euc-jp,cp932,cp20932,latin1
 
