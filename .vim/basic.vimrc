@@ -1,3 +1,4 @@
+set nocompatible
 set shell=/bin/bash\ -l\ -O\ expand_aliases
 set number
 set smartindent
@@ -20,4 +21,3 @@ set nobackup
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,iso-2022-jp,sjis,euc-jp,cp932,cp20932,latin1
-
