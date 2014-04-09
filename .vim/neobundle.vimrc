@@ -9,12 +9,14 @@ NeoBundle g:github . 'Shougo/unite.vim'
 NeoBundle g:github . 'Shougo/neocomplcache'
 NeoBundle g:github . 'Shougo/neosnippet'
 NeoBundle g:github . 'Shougo/vimfiler'
+NeoBundle g:github . 'Shougo/vimshell'
+NeoBundle g:github . 'Shougo/vimproc'
 NeoBundle g:github . 'kana/vim-smartchr'
 NeoBundle g:github . 'thinca/vim-quickrun'
 NeoBundle g:github . 'vim-scripts/sudo.vim'
 NeoBundle g:github . 'mattn/zencoding-vim'
 NeoBundle g:github . 'deton/jasegment.vim'
-NeoBundle g:github . 'docteurklein/vim-symfony'
+"NeoBundle g:github . 'docteurklein/vim-symfony'
 filetype plugin indent on
 
 set runtimepath+=~/.vim/
