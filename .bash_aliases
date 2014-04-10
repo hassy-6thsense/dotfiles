@@ -16,46 +16,44 @@ alias vbashrc='vim $HOME/.bashrc'
 alias vbash_aliases='vim $HOME/.bash_aliases'
 alias vvimrc='vim $HOME/.vimrc'
 
-function gitpull()
-{
+function gitpull() {
 	if ! [ -d "./.git" ]; then
 		echo "$PWD is not git directory."
 	else
 		if [ $# -eq 0 ]; then
-			git pull origin master
-		elif [ $# -eq 1 ] && [ -n "$1" ]; then
-			git pull $1 master
+			git pull
 		elif [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
 			git pull $1 $2
 		else
-			echo "usage: gitpull [<repository> [<refspec>]]"
+			echo "usage: gitpull [<repository> <refspec>]"
 		fi
 	fi
 }
 
-function gitpush()
-{
+function gitcommit() {
 	if ! [ -d "./.git" ]; then
 		echo "$PWD is not git directory."
-
 	else
 		if [ $# -eq 1 ] && [ -n "$1" ]; then
 			gitpull
 			git add --all .
-			git commit -am "$1"
-			git push origin master
-		elif [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
-			gitpull $2
-			git add --all .
-			git commit -am "$1"
-			git push $2 master
-		elif [ $# -eq 3 ] && [ -n "$1" ] && [ -n "$2" ] && [ -n "$3" ]; then
-			gitpull $2 $3
-			git add --all .
-			git commit -am "$1"
-			git push $2 $3
+			git commit -am "${1}"
 		else
-			echo "usage: gitpush <comment> [<repository> [<refspec>]]"
+			echo "usage: gitcommit <comment>"
+		fi
+	fi
+}
+
+function gitpush() {
+	if ! [ -d "./.git" ]; then
+		echo "$PWD is not git directory."
+	else
+		if [ $# -eq 0 ]; then
+			git push
+		elif [ $# -eq 2 ] && [ -n "$1" ] && [ -n "$2" ]; then
+			git push -u $1 $2
+		else
+			echo "usage: gitpush [<repository> <refspec>]"
 		fi
 	fi
 }
