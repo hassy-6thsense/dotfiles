@@ -35,7 +35,6 @@ function gitcommit() {
 		echo "$PWD is not git directory."
 	else
 		if [ $# -eq 1 ] && [ -n "$1" ]; then
-			gitpull
 			git add --all .
 			git commit -am "${1}"
 		else
