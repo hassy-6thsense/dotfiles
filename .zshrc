@@ -65,6 +65,11 @@ alias v="vim"
 alias -g @L="| less"
 alias b="cd-bookmark"
 
+# local or secret settings
+if [ -f "$HOME/.local.zshrc" ]; then
+	source "$HOME/.local.zshrc"
+fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
