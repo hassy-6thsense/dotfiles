@@ -61,8 +61,8 @@ if [ -f "$HOME/.zsh/environments.zshrc" ]; then
 fi
 
 # local or secret settings
-if [ -f "$HOME/.local.zshrc" ]; then
-	source "$HOME/.local.zshrc"
+if [ -f "$HOME/.zshrc.local" ]; then
+	source "$HOME/.zshrc.local"
 fi
 
 # You may need to manually set your language environment
