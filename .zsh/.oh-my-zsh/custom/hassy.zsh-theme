@@ -40,7 +40,3 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{${fg_bold[blue]}%}o%{${reset_color}%}"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{${fg_bold[magenta]}%}!%{${reset_color}%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{${fg_bold[grey]}%}?%{${reset_color}%}"
 
-#RPROMPT='$(git_prompt_info) $(git_prompt_status)'
-#RPROMPT='$(my_git_prompt)'
-#RPROMPT='%1(v|[%{${fg_bold[yellow]}%}%1v%{${reset_color}%}]|)%{${reset_color}%}'
-
