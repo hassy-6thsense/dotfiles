@@ -13,3 +13,7 @@
 	excludesfile = ~/.gitignore
 [include]
 	path = ~/.gitconfig.local
+[http]
+	postBuffer = 524288000
+[https]
+	postBuffer = 524288000
