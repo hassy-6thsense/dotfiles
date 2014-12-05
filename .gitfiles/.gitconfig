@@ -1,0 +1,19 @@
+[user]
+	name = SET_ME_LOCALLY
+	email = SET_ME_LOCALLY
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[merge]
+	tool = vimdiff
+[init]
+	templatedir = ~/.git_template
+[core]
+	excludesfile = ~/.gitignore
+[include]
+	path = ~/.gitconfig.local
+[http]
+	postBuffer = 524288000
+[https]
+	postBuffer = 524288000
