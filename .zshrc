@@ -50,20 +50,15 @@ plugins=(git cd-bookmark)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# environments
-export PATH="$HOME/.anyenv/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-export EDITOR="vim"
-export HOMEBREW_MAKE_JOBS=4
-export JAVA_HOME="$(/usr/libexec/java_home)"
-eval "$(anyenv init -)"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # aliases
-alias rm="rm -i"
-alias vi="vim"
-alias v="vim"
-alias -g @L="| less"
-alias b="cd-bookmark"
+if [ -f "$HOME/.zsh/aliases.zshrc" ]; then
+	source "$HOME/.zsh/aliases.zshrc"
+fi
+
+# environments
+if [ -f "$HOME/.zsh/environments.zshrc" ]; then
+	source "$HOME/.zsh/environments.zshrc"
+fi
 
 # local or secret settings
 if [ -f "$HOME/.local.zshrc" ]; then

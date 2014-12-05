@@ -1,0 +1,5 @@
+alias rm="rm -i"
+alias vi="vim"
+alias v="vim"
+alias -g @L="| less"
+alias b="cd-bookmark"
