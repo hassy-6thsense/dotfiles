@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ "$(git config user.name)" = "SET_ME_LOCALLY" ]; then
+    echo "fatal: user.name is not set locally"
+    exit 1
+fi
+if [ "$(git config user.email)" = "SET_ME_LOCALLY" ]; then
+    echo "fatal: user.email is not set locally"
+    exit 1
+fi
+
+# if the branch is master, then fail.
+branch="$(git symbolic-ref HEAD 2>/dev/null)" || "$(git describe --contains --all HEAD)"
+if [ "${branch##refs/heads/}" = "master" ]; then
+	echo "Can't push to the MASTER branch!"
+	echo "If you want to push to the master branch, please run 'git push --no-verify'."
+	exit 1
+fi
