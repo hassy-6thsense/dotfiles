@@ -15,13 +15,13 @@ function my_git_prompt_status() {
 autoload -U colors
 colors
 
-COLOR_USER="$FG[012]"
+COLOR_USER="$FG[220]"
 if [ $USER = "root" ]; then
 	COLOR_USER="$fg_bold[magenta]"
 fi
 PROMPT_USER="%{${COLOR_USER}%}%n%{${reset_color}%}"
 
-COLOR_HOST="$FG[012]"
+COLOR_HOST="$FG[220]"
 PROMPT_HOST="%{${COLOR_HOST}%}%m%{${reset_color}%}"
 
 COLOR_DIR="$fg_bold[cyan]"
