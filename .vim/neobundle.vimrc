@@ -6,7 +6,7 @@ endif
 
 let github = 'https://github.com/'
 NeoBundle g:github . 'Shougo/unite.vim'
-NeoBundle g:github . 'Shougo/neocomplcache'
+NeoBundle g:github . 'Shougo/neocomplete'
 NeoBundle g:github . 'Shougo/neosnippet'
 NeoBundle g:github . 'Shougo/vimfiler'
 NeoBundle g:github . 'Shougo/vimshell'
