@@ -24,7 +24,7 @@ NeoBundle g:github . 'Shougo/vimproc.vim', {
 NeoBundle g:github . 'kana/vim-smartchr'
 NeoBundle g:github . 'thinca/vim-quickrun'
 NeoBundle g:github . 'vim-scripts/sudo.vim'
-NeoBundle g:github . 'mattn/zencoding-vim'
+NeoBundle g:github . 'mattn/emmet-vim'
 NeoBundle g:github . 'deton/jasegment.vim'
 "NeoBundle g:github . 'docteurklein/vim-symfony'
 
