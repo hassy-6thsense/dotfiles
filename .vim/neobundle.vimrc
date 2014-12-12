@@ -1,10 +1,11 @@
 filetype off
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim
-	call neobundle#rc(expand('~/.vim/bundle'))
+	call neobundle#begin(expand('~/.vim/bundle'))
 endif
 
 let github = 'https://github.com/'
+NeoBundleFetch g:github . 'Shougo/neobundle.vim'
 NeoBundle g:github . 'Shougo/unite.vim'
 NeoBundle g:github . 'Shougo/neocomplete'
 NeoBundle g:github . 'Shougo/neosnippet'
@@ -26,6 +27,9 @@ NeoBundle g:github . 'vim-scripts/sudo.vim'
 NeoBundle g:github . 'mattn/zencoding-vim'
 NeoBundle g:github . 'deton/jasegment.vim'
 "NeoBundle g:github . 'docteurklein/vim-symfony'
+
+call neobundle#end()
+
 filetype plugin indent on
 
 set runtimepath+=~/.vim/
