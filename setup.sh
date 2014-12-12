@@ -11,6 +11,11 @@ function divert_file() {
 	fi
 }
 
+function make_symlink() {
+	echo -n "ln: "
+	ln -vis "${1}" "${2}"
+}
+
 # Initialize and update submodules.
 git submodule init
 git submodule update
@@ -26,8 +31,7 @@ do
 	   [ "${dotfile}" != ".gitignore" ] &&
 	   [ "${dotfile}" != ".gitmodules" ]; then
 		divert_file "${HOME}/${dotfile}"
-		echo -n "ln: "
-        ln -vis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
+        make_symlink "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
 
@@ -37,8 +41,7 @@ for dotfile in .?*
 do
     if [ "${dotfile}" != "." ] && [ "${dotfile}" != ".." ]; then
 		divert_file "${HOME}/${dotfile}"
-		echo -n "ln: "
-        ln -vis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
+        make_symlink "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
 
@@ -51,15 +54,13 @@ for file in ?*
 do
     if [ "${file}" != "plugins" ]; then
 		divert_file "${omz_custom_dir}/${file}"
-		echo -n "ln: "
-        ln -vis "${PWD}/${file}" "${omz_custom_dir}/${file}"
+        make_symlink "${PWD}/${file}" "${omz_custom_dir}/${file}"
 	else 
 		cd "${PWD}/plugins"
 		for plugin in ?*
 		do
 			divert_file "${omz_custom_plugins_dir}/${plugin}"
-			echo -n "ln: "
-        	ln -vis "${PWD}/${plugin}" "${omz_custom_plugins_dir}/${plugin}"
+        	make_symlink "${PWD}/${plugin}" "${omz_custom_plugins_dir}/${plugin}"
 		done
 	fi
 done
