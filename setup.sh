@@ -12,6 +12,7 @@ function divert_file() {
 }
 
 function make_symlink() {
+	divert_file "${2}"
 	echo -n "ln: "
 	ln -vis "${1}" "${2}"
 }
@@ -30,7 +31,6 @@ do
 	   [ "${dotfile}" != ".gitfiles" ] &&
 	   [ "${dotfile}" != ".gitignore" ] &&
 	   [ "${dotfile}" != ".gitmodules" ]; then
-		divert_file "${HOME}/${dotfile}"
         make_symlink "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
@@ -40,7 +40,6 @@ cd "${dotfiles_dir}/.gitfiles"
 for dotfile in .?*
 do
     if [ "${dotfile}" != "." ] && [ "${dotfile}" != ".." ]; then
-		divert_file "${HOME}/${dotfile}"
         make_symlink "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
@@ -53,13 +52,11 @@ cd "${dotfiles_dir}/.zsh/.oh-my-zsh/custom"
 for file in ?*
 do
     if [ "${file}" != "plugins" ]; then
-		divert_file "${omz_custom_dir}/${file}"
         make_symlink "${PWD}/${file}" "${omz_custom_dir}/${file}"
 	else 
 		cd "${PWD}/plugins"
 		for plugin in ?*
 		do
-			divert_file "${omz_custom_plugins_dir}/${plugin}"
         	make_symlink "${PWD}/${plugin}" "${omz_custom_plugins_dir}/${plugin}"
 		done
 	fi
