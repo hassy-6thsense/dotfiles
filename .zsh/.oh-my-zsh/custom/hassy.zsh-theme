@@ -15,19 +15,19 @@ function my_git_prompt_status() {
 autoload -U colors
 colors
 
-COLOR_USER="$FG[012]"
+color_user="$FG[220]"
 if [ $USER = "root" ]; then
-	COLOR_USER="$fg_bold[magenta]"
+	color_user="$fg_bold[magenta]"
 fi
-PROMPT_USER="%{${COLOR_USER}%}%n%{${reset_color}%}"
+prompt_user="%{${color_user}%}%n%{${reset_color}%}"
 
-COLOR_HOST="$FG[012]"
-PROMPT_HOST="%{${COLOR_HOST}%}%m%{${reset_color}%}"
+color_host="$FG[220]"
+prompt_host="%{${color_host}%}%m%{${reset_color}%}"
 
-COLOR_DIR="$fg_bold[cyan]"
-PROMPT_DIR="%{${COLOR_DIR}%}%~%{${reset_color}%}"
+color_dir="$fg_bold[cyan]"
+prompt_dir="%{${color_dir}%}%~%{${reset_color}%}"
 
-PROMPT='${PROMPT_USER}@${PROMPT_HOST}:${PROMPT_DIR} $(my_git_prompt_info)
+PROMPT='${prompt_user}@${prompt_host}:${prompt_dir} $(my_git_prompt_info)
 %# %{${reset_color}%}'
 
 ZSH_THEME_GIT_PROMPT_DIRTY="red"
