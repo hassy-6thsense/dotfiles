@@ -11,7 +11,15 @@ NeoBundle g:github . 'Shougo/neosnippet'
 NeoBundle g:github . 'Shougo/neosnippet-snippets'
 NeoBundle g:github . 'Shougo/vimfiler'
 NeoBundle g:github . 'Shougo/vimshell'
-NeoBundle g:github . 'Shougo/vimproc'
+NeoBundle g:github . 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle g:github . 'kana/vim-smartchr'
 NeoBundle g:github . 'thinca/vim-quickrun'
 NeoBundle g:github . 'vim-scripts/sudo.vim'
