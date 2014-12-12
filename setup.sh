@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dotfiles_dir="$(dirname $(readlink -f $0))"
 
@@ -16,10 +16,14 @@ do
 		[ "${dotfile}" != ".gitfiles" ] &&
 		[ "${dotfile}" != ".gitignore" ] &&
 		[ "${dotfile}" != ".gitmodules" ]; then
-		if [ -e "${HOME}/${dotfile}" ]; then
-			rm -ir "${HOME}/${dotfile}"
+		if [ -L "${HOME}/${dotfile}" ]; then
+			rm -f "${HOME}/${dotfile}"
+		elif [ -e "${HOME}/${dotfile}" ]; then
+			echo -n "mv: "
+			mv -vi "${HOME}/${dotfile}" "${HOME}/${dotfile}.orig"
 		fi
-        ln -vFis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
+		echo -n "ln: "
+        ln -vis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
 
@@ -28,10 +32,14 @@ cd "${dotfiles_dir}/.gitfiles"
 for dotfile in .?*
 do
     if [ "${dotfile}" != "." ] && [ "${dotfile}" != ".." ]; then
-		if [ -e "${HOME}/${dotfile}" ]; then
-			rm -ir "${HOME}/${dotfile}"
+		if [ -L "${HOME}/${dotfile}" ]; then
+			rm -f "${HOME}/${dotfile}"
+		elif [ -e "${HOME}/${dotfile}" ]; then
+			echo -n "mv: "
+			mv -vi "${HOME}/${dotfile}" "${HOME}/${dotfile}.orig"
 		fi
-        ln -vFis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
+		echo -n "ln: "
+        ln -vis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
 
@@ -43,18 +51,26 @@ cd "${dotfiles_dir}/.zsh/.oh-my-zsh/custom"
 for file in ?*
 do
     if [ "${file}" != "plugins" ]; then
-		if [ -e "${omz_custom_dir}/${file}" ]; then
-			rm -ir "${omz_custom_dir}/${file}"
+		if [ -L "${omz_custom_dir}/${file}" ]; then
+			rm -f "${omz_custom_dir}/${file}"
+		elif [ -e "${omz_custom_dir}/${file}" ]; then
+			echo -n "mv: "
+			mv -vi "${omz_custom_dir}/${file}" "${omz_custom_dir}/${file}.orig"
 		fi
-        ln -vFis "${PWD}/${file}" "${omz_custom_dir}/${file}"
+		echo -n "ln: "
+        ln -vis "${PWD}/${file}" "${omz_custom_dir}/${file}"
 	else 
 		cd "${PWD}/plugins"
 		for plugin in ?*
 		do
-			if [ -e "${omz_custom_plugins_dir}/${plugin}" ]; then
-				rm -ir "${omz_custom_plugins_dir}/${plugin}"
+			if [ -L "${omz_custom_dir}/${plugin}" ]; then
+				rm -f "${omz_custom_plugins_dir}/${plugin}"
+			elif [ -e "${omz_custom_plugins_dir}/${plugin}" ]; then
+				echo -n "mv: "
+				mv -vi "${omz_custom_plugins_dir}/${plugin}" "${omz_custom_plugins_dir}/${plugin}.orig"
 			fi
-        	ln -vFis "${PWD}/${plugin}" "${omz_custom_plugins_dir}/${plugin}"
+			echo -n "ln: "
+        	ln -vis "${PWD}/${plugin}" "${omz_custom_plugins_dir}/${plugin}"
 		done
 	fi
 done
