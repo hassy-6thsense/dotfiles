@@ -1,6 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
 dotfiles_dir="$(dirname $(readlink -f $0))"
+
+function divert_file() {
+	if [ -L "${1}" ]; then
+		rm -f "${1}"
+	elif [ -e "${1}" ]; then
+		echo -n "mv: "
+		mv -vi "${1}" "${1}.orig"
+	fi
+}
+
+function make_symlink() {
+	divert_file "${2}"
+	echo -n "ln: "
+	ln -vis "${1}" "${2}"
+}
 
 # Initialize and update submodules.
 git submodule init
@@ -11,15 +26,12 @@ cd "${dotfiles_dir}"
 for dotfile in .?*
 do
     if [ "${dotfile}" != "." ] &&
-		[ "${dotfile}" != ".." ] &&
-		[ "${dotfile}" != ".git" ] &&
-		[ "${dotfile}" != ".gitfiles" ] &&
-		[ "${dotfile}" != ".gitignore" ] &&
-		[ "${dotfile}" != ".gitmodules" ]; then
-		if [ -e "${HOME}/${dotfile}" ]; then
-			rm -ir "${HOME}/${dotfile}"
-		fi
-        ln -vFis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
+	   [ "${dotfile}" != ".." ] &&
+	   [ "${dotfile}" != ".git" ] &&
+	   [ "${dotfile}" != ".gitfiles" ] &&
+	   [ "${dotfile}" != ".gitignore" ] &&
+	   [ "${dotfile}" != ".gitmodules" ]; then
+        make_symlink "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
 
@@ -28,10 +40,7 @@ cd "${dotfiles_dir}/.gitfiles"
 for dotfile in .?*
 do
     if [ "${dotfile}" != "." ] && [ "${dotfile}" != ".." ]; then
-		if [ -e "${HOME}/${dotfile}" ]; then
-			rm -ir "${HOME}/${dotfile}"
-		fi
-        ln -vFis "${PWD}/${dotfile}" "${HOME}/${dotfile}"
+        make_symlink "${PWD}/${dotfile}" "${HOME}/${dotfile}"
     fi
 done
 
@@ -43,18 +52,12 @@ cd "${dotfiles_dir}/.zsh/.oh-my-zsh/custom"
 for file in ?*
 do
     if [ "${file}" != "plugins" ]; then
-		if [ -e "${omz_custom_dir}/${file}" ]; then
-			rm -ir "${omz_custom_dir}/${file}"
-		fi
-        ln -vFis "${PWD}/${file}" "${omz_custom_dir}/${file}"
+        make_symlink "${PWD}/${file}" "${omz_custom_dir}/${file}"
 	else 
 		cd "${PWD}/plugins"
 		for plugin in ?*
 		do
-			if [ -e "${omz_custom_plugins_dir}/${plugin}" ]; then
-				rm -ir "${omz_custom_plugins_dir}/${plugin}"
-			fi
-        	ln -vFis "${PWD}/${plugin}" "${omz_custom_plugins_dir}/${plugin}"
+        	make_symlink "${PWD}/${plugin}" "${omz_custom_plugins_dir}/${plugin}"
 		done
 	fi
 done
