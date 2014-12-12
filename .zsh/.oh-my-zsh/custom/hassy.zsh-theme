@@ -12,23 +12,23 @@ function my_git_prompt_status() {
 	[ $(current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%} $(git_prompt_status)]"
 }
 
-autoload -U colors
-colors
+function make_prompt() {
+	color_user="$FG[220]"
+	if [ $USER = "root" ]; then
+		color_user="$fg_bold[magenta]"
+	fi
+	prompt_user="%{${color_user}%}%n%{${reset_color}%}"
 
-COLOR_USER="$FG[220]"
-if [ $USER = "root" ]; then
-	COLOR_USER="$fg_bold[magenta]"
-fi
-PROMPT_USER="%{${COLOR_USER}%}%n%{${reset_color}%}"
+	color_host="$FG[220]"
+	prompt_host="%{${color_host}%}%m%{${reset_color}%}"
 
-COLOR_HOST="$FG[220]"
-PROMPT_HOST="%{${COLOR_HOST}%}%m%{${reset_color}%}"
+	color_dir="$fg_bold[cyan]"
+	prompt_dir="%{${color_dir}%}%~%{${reset_color}%}"
 
-COLOR_DIR="$fg_bold[cyan]"
-PROMPT_DIR="%{${COLOR_DIR}%}%~%{${reset_color}%}"
-
-PROMPT='${PROMPT_USER}@${PROMPT_HOST}:${PROMPT_DIR} $(my_git_prompt_info)
-%# %{${reset_color}%}'
+	prompt="${prompt_user}@${prompt_host}:${prompt_dir} $(my_git_prompt_info)
+%# %{${reset_color}%}"
+	echo ${prompt}
+}
 
 ZSH_THEME_GIT_PROMPT_DIRTY="red"
 ZSH_THEME_GIT_PROMPT_CLEAN="green"
@@ -40,3 +40,7 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{${fg_bold[blue]}%}o%{${reset_color}%}"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{${fg_bold[magenta]}%}!%{${reset_color}%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{${fg_bold[grey]}%}?%{${reset_color}%}"
 
+autoload -U colors
+colors
+
+PROMPT=$(make_prompt)
