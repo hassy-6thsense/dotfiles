@@ -11,7 +11,7 @@ NeoBundle g:github . 'Shougo/neomru.vim'
 NeoBundle g:github . 'Shougo/neocomplete'
 NeoBundle g:github . 'Shougo/neosnippet'
 NeoBundle g:github . 'Shougo/neosnippet-snippets'
-NeoBundle g:github . 'Shougo/vimfiler'
+NeoBundle g:github . 'Shougo/vimfiler.vim'
 NeoBundle g:github . 'Shougo/vimshell'
 NeoBundle g:github . 'Shougo/vimproc.vim', {
 \ 'build' : {
