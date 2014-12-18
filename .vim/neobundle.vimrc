@@ -27,6 +27,7 @@ NeoBundle g:github . 'thinca/vim-quickrun'
 NeoBundle g:github . 'vim-scripts/sudo.vim'
 NeoBundle g:github . 'mattn/emmet-vim'
 NeoBundle g:github . 'deton/jasegment.vim'
+NeoBundle g:github . 'bronson/vim-trailing-whitespace'
 "NeoBundle g:github . 'docteurklein/vim-symfony'
 
 call neobundle#end()

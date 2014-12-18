@@ -6,18 +6,27 @@ set cindent
 set showmode
 set whichwrap=b,s,h,l,<,>,[,]
 set nowrap
-let loaded_matchparan=1
 set backspace=indent,eol,start
 set tabstop=4
 set shiftwidth=4
 set showmatch
-let loaded_matchparen = 1
-
-highlight SPACE cterm=underline ctermfg=lightred
-match SPACE /　/
-
-set nobackup
-
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,iso-2022-jp,sjis,euc-jp,cp932,cp20932,latin1
+set nobackup
+let loaded_matchparen=1
+
+
+function! ZenkakuSpace()
+	highlight ZenkakuSpace cterm=underline ctermfg=lightred
+endfunction
+
+if has('syntax')
+	augroup ZenkakuSpace
+		autocmd!
+		autocmd ColorScheme * call ZenkakuSpace()
+		autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+	augroup END
+	call ZenkakuSpace()
+endif
+
