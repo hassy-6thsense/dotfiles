@@ -17,9 +17,9 @@ imap <expr><TAB> pumvisible() ?
 smap <expr><TAB> neosnippet#jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" :
     \ "\<TAB>"
-imap <expr><Space> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)" :
-    \ "\<Space>"
+"imap <expr><Space> neosnippet#expandable_or_jumpable() ?
+"    \ "\<Plug>(neosnippet_expand_or_jump)" :
+"    \ "\<Space>"
 imap <expr><CR> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" :
     \ "\<CR>"
