@@ -7,6 +7,7 @@ endif
 let github = 'https://github.com/'
 NeoBundleFetch g:github . 'Shougo/neobundle.vim'
 NeoBundle g:github . 'Shougo/unite.vim'
+NeoBundle g:github . 'Shougo/neomru.vim'
 NeoBundle g:github . 'Shougo/neocomplete'
 NeoBundle g:github . 'Shougo/neosnippet'
 NeoBundle g:github . 'Shougo/neosnippet-snippets'
