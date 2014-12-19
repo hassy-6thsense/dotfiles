@@ -1,7 +1,5 @@
 #!/bin/bash
 
-dotfiles_dir="$(dirname $(readlink -f $0))"
-
 function divert_file() {
 	if [ -L "${1}" ]; then
 		rm -f "${1}"
@@ -16,6 +14,12 @@ function make_symlink() {
 	echo -n "ln: "
 	ln -vis "${1}" "${2}"
 }
+
+dotfiles_dir="${HOME}/dotfiles"
+if [ ! -d ${dotfiles_dir} ]; then
+    echo "dotfiles MUST be installed "${HOME}/dotfiles" !"
+    exit 1;
+fi
 
 # Initialize and update submodules.
 git submodule init
