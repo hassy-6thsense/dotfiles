@@ -1,5 +1,4 @@
 export EDITOR="vim"
 export LANG="ja_JP.UTF-8"
-export MANPATH="/usr/local/bin:/usr/local/sbin:$MANPATH"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+xport PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export TERM="xterm-256color"
