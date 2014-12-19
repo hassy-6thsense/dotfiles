@@ -3,13 +3,13 @@
 # Uses "#" instead of "»" when running with elevated privileges
 
 function my_git_prompt_info() {
-	branch_color=$(parse_git_dirty)
-	[ $(current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%}]"
+    branch_color=$(parse_git_dirty)
+    [ $(current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%}]"
 }
 
 function my_git_prompt_status() {
-	branch_color=$(parse_git_dirty)
-	[ $(current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%} $(git_prompt_status)]"
+    branch_color=$(parse_git_dirty)
+    [ $(current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%} $(git_prompt_status)]"
 }
 
 autoload -U colors
@@ -17,7 +17,7 @@ colors
 
 color_user="$FG[220]"
 if [ $USER = "root" ]; then
-	color_user="$fg_bold[magenta]"
+    color_user="$fg_bold[magenta]"
 fi
 prompt_user="%{${color_user}%}%n%{${reset_color}%}"
 

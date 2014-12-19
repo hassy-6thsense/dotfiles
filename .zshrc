@@ -52,17 +52,17 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # aliases
 if [ -f "$HOME/.zsh/aliases.zshrc" ]; then
-	source "$HOME/.zsh/aliases.zshrc"
+    source "$HOME/.zsh/aliases.zshrc"
 fi
 
 # environments
 if [ -f "$HOME/.zsh/environments.zshrc" ]; then
-	source "$HOME/.zsh/environments.zshrc"
+    source "$HOME/.zsh/environments.zshrc"
 fi
 
 # local or secret settings
 if [ -f "$HOME/.zshrc.local" ]; then
-	source "$HOME/.zshrc.local"
+    source "$HOME/.zshrc.local"
 fi
 
 # You may need to manually set your language environment

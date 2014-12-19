@@ -23,7 +23,7 @@ alias -s php="php"
 alias -s py="python"
 
 if [ -x "$(which aunpack)" ]; then
-	alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}="aunpack"
+    alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}="aunpack"
 fi
 
 function runcc() { cc -O2 $1 && shift && ./a.out $@ }
