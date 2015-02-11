@@ -48,6 +48,11 @@ ZSH_THEME="hassy"
 plugins=(git cd-bookmark sudo)
 
 # User configuration
+# setting of each OS
+if [ -f "$HOME/.zsh/os.zshrc" ]; then
+    source "$HOME/.zsh/os.zshrc"
+fi
+
 # aliases
 if [ -f "$HOME/.zsh/aliases.zshrc" ]; then
     source "$HOME/.zsh/aliases.zshrc"
@@ -56,11 +61,6 @@ fi
 # environments
 if [ -f "$HOME/.zsh/environments.zshrc" ]; then
     source "$HOME/.zsh/environments.zshrc"
-fi
-
-# setting of each OS
-if [ -f "$HOME/.zsh/os.zshrc" ]; then
-    source "$HOME/.zsh/os.zshrc"
 fi
 
 # local or secret settings

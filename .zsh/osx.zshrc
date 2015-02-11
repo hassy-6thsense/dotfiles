@@ -1,5 +1,5 @@
 # Additional plugins of oh-my-zsh
-plugins=($plugins osx gnu-utils)
+plugins=($plugins osx)
 
 if [ -x "$(which brew 2>&1)" ]; then
     plugins=($plugins brew)
