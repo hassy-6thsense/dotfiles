@@ -47,8 +47,6 @@ ZSH_THEME="hassy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git cd-bookmark)
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 # aliases
 if [ -f "$HOME/.zsh/aliases.zshrc" ]; then
@@ -64,6 +62,8 @@ fi
 if [ -f "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
 fi
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
