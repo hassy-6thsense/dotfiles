@@ -2,7 +2,7 @@
 	name = SET_ME_LOCALLY
 	email = SET_ME_LOCALLY
 [credential]
-	helper = osxkeychain
+	helper = cache --timeout=604800
 [push]
 	default = simple
 [merge]
