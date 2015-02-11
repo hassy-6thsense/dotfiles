@@ -58,6 +58,11 @@ if [ -f "$HOME/.zsh/environments.zshrc" ]; then
     source "$HOME/.zsh/environments.zshrc"
 fi
 
+# setting of each OS
+if [ -f "$HOME/.zsh/os.zshrc" ]; then
+    source "$HOME/.zsh/os.zshrc"
+fi
+
 # local or secret settings
 if [ -f "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
