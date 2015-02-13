@@ -45,7 +45,11 @@ ZSH_THEME="hassy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git cd-bookmark sudo)
+if [ -f "$HOME/.zsh/plugins.zshrc" ]; then
+    source "$HOME/.zsh/plugins.zshrc"
+fi
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # setting of each OS
@@ -67,8 +71,6 @@ fi
 if [ -f "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
 fi
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

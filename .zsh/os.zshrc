@@ -1,5 +1,5 @@
 # os.zshrc
-# The file to include the configuration file of each OS
+# The file of including the configuration file of each OS
 
 if [ "$(uname)" = "Darwin" ]; then
     source "$HOME/.zsh/osx.zshrc"

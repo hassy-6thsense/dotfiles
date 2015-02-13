@@ -1,3 +1,3 @@
-# Additional plugins of oh-my-zsh
-plugins=($plugins debian)
+# debian.zshrc
+# The file to set aliases and environments for Debian GNU/Linux
 

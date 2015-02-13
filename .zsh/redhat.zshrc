@@ -1,3 +1,3 @@
-# Additional plugins of oh-my-zsh
-plugins=($plugins yum)
+# redhat.zshrc
+# The file of setting aliases and environments for RHEL and RHEL clones
 
