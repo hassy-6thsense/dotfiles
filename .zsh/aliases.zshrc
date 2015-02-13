@@ -7,6 +7,7 @@ alias rm="rm -iv"
 alias vi="vim"
 alias v="vim"
 alias b="cd-bookmark"
+alias eman="LANG=C man"
 
 
 # Global aliases

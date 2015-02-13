@@ -1,2 +1,2 @@
 export PAGER="less"
-export LESS="--ignore-case"
+export LESS="$LESS --ignore-case"
