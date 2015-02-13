@@ -3,15 +3,15 @@
 
 plugins=(git cd-bookmark sudo)
 
-if [ "$(uname)" = "Darwin" ]; then
+if [ "${os}" = "osx" ]; then
     if [ -x "$(which brew 2>&1)" ]; then
         plugins=($plugins osx brew)
     elif [ -x "$(which port 2>&1)" ]; then
         plugins=($plugins osx macports apache2-macports)
     fi
-elif [ -f "/etc/debian_version" ]; then
+elif [ "${os}" = "debian" ]; then
     plugins=($plugins debian)
-elif [ -f "/etc/redhat-release" ]; then
+elif [ "${os}" = "redhat" ]; then
     plugins=($plugins yum)
 fi
 
