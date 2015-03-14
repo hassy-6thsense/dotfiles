@@ -1,11 +1,5 @@
-# Additional plugins of oh-my-zsh
-plugins=($plugins osx)
-
-if [ -x "$(which brew 2>&1)" ]; then
-    plugins=($plugins brew)
-elif [ -x "$(which port 2>&1)" ]; then
-    plugins=($plugins macports apache2-macports)
-fi
+# osx.zshrc
+# The file of setting aliases and environments for Mac OS X
 
 # environments
 export JAVA_HOME="$(/usr/libexec/java_home)"

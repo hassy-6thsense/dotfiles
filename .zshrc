@@ -41,16 +41,31 @@ ZSH_THEME="hassy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Identify OS
+if [ "$(uname)" = "Darwin" ]; then
+    os="osx"
+elif [ -f "/etc/debian_version" ]; then
+    os="debian"
+elif [ -f "/etc/redhat-release" ]; then
+    os="redhat"
+else
+    os="unknown"
+fi
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git cd-bookmark sudo)
+if [ -f "$HOME/.zsh/plugins.zshrc" ]; then
+    source "$HOME/.zsh/plugins.zshrc"
+fi
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # setting of each OS
-if [ -f "$HOME/.zsh/os.zshrc" ]; then
-    source "$HOME/.zsh/os.zshrc"
+if [ -f "$HOME/.zsh/${os}.zshrc" ]; then
+    source "$HOME/.zsh/${os}.zshrc"
 fi
 
 # aliases
@@ -67,8 +82,6 @@ fi
 if [ -f "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
 fi
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
