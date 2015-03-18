@@ -47,6 +47,7 @@ NeoBundle g:github . 'deton/jasegment.vim'
 NeoBundle g:github . 'bronson/vim-trailing-whitespace'
 NeoBundle g:github . 'tpope/vim-surround'
 NeoBundle g:github . 'nathanaelkane/vim-indent-guides'
+NeoBundle g:github . 'derekwyatt/vim-scala'
 
 call neobundle#end()
 
