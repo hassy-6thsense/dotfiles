@@ -17,3 +17,5 @@
 	postBuffer = 524288000
 [https]
 	postBuffer = 524288000
+[color]
+	ui = auto
