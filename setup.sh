@@ -15,17 +15,22 @@ function make_symlink() {
     ln -vis "${1}" "${2}"
 }
 
+
+# Set current directory at the start of executing this shell
+current_dir="${PWD}"
+
+# Set directory 'dotfiles' if exists
 dotfiles_dir="${HOME}/dotfiles"
 if [ ! -d ${dotfiles_dir} ]; then
     echo "dotfiles MUST be installed "${HOME}/dotfiles" !"
     exit 1;
 fi
 
-# Initialize and update submodules.
+# Initialize and update submodules
 git submodule init
 git submodule update
 
-# Make symbolic links to /path/to/dotfiles/* in $HOME.
+# Make symbolic links to /path/to/dotfiles/* in $HOME
 cd "${dotfiles_dir}"
 for dotfile in .?*
 do
@@ -39,7 +44,7 @@ do
     fi
 done
 
-# Make symbolic links to /path/to/dotfiles/gitfiles/* in $HOME.
+# Make symbolic links to /path/to/dotfiles/gitfiles/* in $HOME
 cd "${dotfiles_dir}/.gitfiles"
 for dotfile in .?*
 do
@@ -66,3 +71,8 @@ do
     fi
 done
 
+# Return to current directory at the start of executing this shell
+cd ${current_dir}
+
+# Reload shell
+exec ${SHELL}
