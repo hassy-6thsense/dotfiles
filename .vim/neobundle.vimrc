@@ -41,12 +41,12 @@ NeoBundle g:github . 'Shougo/vimproc.vim', {
 \ }
 NeoBundle g:github . 'kana/vim-smartchr'
 NeoBundle g:github . 'thinca/vim-quickrun'
-NeoBundle g:github . 'vim-scripts/sudo.vim'
 NeoBundle g:github . 'mattn/emmet-vim'
 NeoBundle g:github . 'deton/jasegment.vim'
 NeoBundle g:github . 'bronson/vim-trailing-whitespace'
 NeoBundle g:github . 'tpope/vim-surround'
 NeoBundle g:github . 'nathanaelkane/vim-indent-guides'
+NeoBundle g:github . 'derekwyatt/vim-scala'
 
 call neobundle#end()
 
