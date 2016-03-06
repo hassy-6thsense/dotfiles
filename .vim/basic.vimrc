@@ -38,3 +38,11 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 
+" Highlight the search results
+set hlsearch
+nmap / /\v
+nnoremap / :<C-u>set hlsearch<Return>/
+nnoremap ? :<C-u>set hlsearch<Return>?
+nnoremap * :<C-u>set hlsearch<Return>*
+nnoremap # :<C-u>set hlsearch<Return>#
+nnoremap <ESC><ESC> :<C-u>set nohlsearch<Return>
