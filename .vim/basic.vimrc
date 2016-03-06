@@ -40,9 +40,8 @@ endif
 
 " Highlight the search results
 set hlsearch
-nmap / /\v
-nnoremap / :<C-u>set hlsearch<Return>/
-nnoremap ? :<C-u>set hlsearch<Return>?
-nnoremap * :<C-u>set hlsearch<Return>*
-nnoremap # :<C-u>set hlsearch<Return>#
+nnoremap / :<C-u>set hlsearch<Return>/\v
+nnoremap ? :<C-u>set hlsearch<Return>?\v
+nnoremap * :<C-u>set hlsearch<Return>*\v
+nnoremap # :<C-u>set hlsearch<Return>#\v
 nnoremap <ESC><ESC> :<C-u>set nohlsearch<Return>
