@@ -22,6 +22,12 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+" cursor-keys setting
+" http://vim-jp.org/vimdoc-ja/term.html#xterm-cursor-keys
+set notimeout
+set ttimeout
+set timeoutlen=100
+
 let loaded_matchparen=1
 
 
@@ -40,8 +46,8 @@ endif
 
 " Highlight the search results
 set hlsearch
-nnoremap / :<C-u>set hlsearch<Return>/\v
-nnoremap ? :<C-u>set hlsearch<Return>?\v
-nnoremap * :<C-u>set hlsearch<Return>*\v
-nnoremap # :<C-u>set hlsearch<Return>#\v
-nnoremap <ESC><ESC> :<C-u>set nohlsearch<Return>
+nnoremap / /\v
+nnoremap ? ?\v
+nnoremap * *\v
+nnoremap # #\v
+nnoremap <F3> :noh<CR>
