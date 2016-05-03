@@ -50,4 +50,7 @@ nnoremap / /\v
 nnoremap ? ?\v
 nnoremap * *\v
 nnoremap # #\v
-nnoremap <F3> :noh<CR>
+nnoremap <F2> :noh<CR>
+
+nnoremap <F3> :set paste!<CR>:set paste?<CR>
+nnoremap <F4> :set expandtab!<CR>:set expandtab?<CR>
