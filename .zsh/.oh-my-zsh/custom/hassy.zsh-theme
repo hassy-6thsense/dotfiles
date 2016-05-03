@@ -4,12 +4,12 @@
 
 function my_git_prompt_info() {
     branch_color=$(parse_git_dirty)
-    [ $(current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%}]"
+    [ $(git_current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%}]"
 }
 
 function my_git_prompt_status() {
     branch_color=$(parse_git_dirty)
-    [ $(current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%} $(git_prompt_status)]"
+    [ $(git_current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%} $(git_prompt_status)]"
 }
 
 autoload -U colors
