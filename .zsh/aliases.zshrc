@@ -1,11 +1,13 @@
 # Aliases
 alias sudo="sudo -E "
 alias l="ls -lahFv"
-alias cp="cp -ipv"
+alias cp="cp -iav"
 alias mv="mv -iv"
 alias rm="rm -iv"
 alias vi="vim"
 alias v="vim"
+alias view="vim -R"
+alias vw="vim -R"
 alias b="cd-bookmark"
 alias eman="LANG=C man"
 
@@ -23,7 +25,7 @@ alias -s pl="perl"
 alias -s php="php"
 alias -s py="python"
 
-if [ -x "$(which aunpack)" ]; then
+if [ -x "$(which aunpack 2>/dev/null)" ]; then
     alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}="aunpack"
 fi
 
