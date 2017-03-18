@@ -19,3 +19,9 @@
 	postBuffer = 524288000
 [color]
 	ui = auto
+[alias]
+    name = config user.name
+    email = config user.email
+    hassy = !git config user.name "Hassy" && git config user.email 'hassy.6thsense@gmail.com'
+    lg = log --graph --abbrev-commit --date=short --pretty=format:'%C(green)%ad%C(reset) %C(red)[%h]%C(reset)%C(yellow)%d%C(reset) %s %C(bold blue)<%an>%C(reset)'
+    lga = log --graph --abbrev-commit --date=short --pretty=format:'%C(green)%ad%C(reset) %C(red)[%h]%C(reset)%C(yellow)%d%C(reset) %s %C(bold blue)<%an>%C(reset)' --all
