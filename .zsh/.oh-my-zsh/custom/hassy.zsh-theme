@@ -3,13 +3,17 @@
 # Uses "#" instead of "»" when running with elevated privileges
 
 function my_git_prompt_info() {
-    local branch_color=$(parse_git_dirty)
-    [ $(git_current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%}]"
+    if [ $PWD != "/etc" ]; then
+        local branch_color=$(parse_git_dirty)
+        [ $(git_current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%}]"
+    fi
 }
 
 function my_git_prompt_status() {
-    local branch_color=$(parse_git_dirty)
-    [ $(git_current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%} $(git_prompt_status)]"
+    if [ $PWD != "/etc" ]; then
+        local branch_color=$(parse_git_dirty)
+        [ $(git_current_branch) ] && echo "[%{${fg_bold[${branch_color}]}%}$(current_branch)%{${reset_color}%} $(git_prompt_status)]"
+    fi
 }
 
 autoload -U colors
