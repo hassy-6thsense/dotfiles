@@ -8,11 +8,3 @@ if [ -z "$(git config --local user.email)" ]; then
     echo "fatal: user.email is not set locally"
     exit 1
 fi
-
-# if the branch is master, then fail.
-branch="$(git symbolic-ref HEAD 2>/dev/null)" || "$(git describe --contains --all HEAD)"
-if [ "${branch##refs/heads/}" = "master" ]; then
-	echo "Can't commit on the MASTER branch!"
-	echo "If you want to commit on the master branch, please run 'git commit --no-verify'."
-	exit 1
-fi
