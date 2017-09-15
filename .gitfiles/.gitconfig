@@ -1,6 +1,4 @@
 [user]
-	name = SET_ME_LOCALLY
-	email = SET_ME_LOCALLY
 [credential]
 	helper = cache --timeout=604800
 [push]
