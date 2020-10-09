@@ -7,10 +7,27 @@ filetype plugin indent off
 
 
 "**************************************************
-" Basic settings
+" Enable syntax
 "**************************************************
 
 syntax on
+
+
+"**************************************************
+" Plugins
+"**************************************************
+
+if filereadable( expand( '~/.vim/neobundle.vimrc' ) ) && filereadable( expand( '~/.vim/bundle/neobundle.vim/README.md' ) )
+    source ~/.vim/neobundle.vimrc
+else
+    echo "Type 'git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim'."
+endif
+
+
+"**************************************************
+" Basic settings
+"**************************************************
+
 set number
 set showmode
 set nowrap
@@ -130,6 +147,10 @@ endfunction
 " Register command ':RemoveTrailingWhitespace'
 command! -range=% RemoveTrailingWhitespace call <SID>RemoveTrailingWhitespace(<line1>, <line2>)
 
+" Disable conceal
+set conceallevel=0
+set concealcursor=
+
 
 "**************************************************
 " Key mappings
@@ -147,17 +168,6 @@ nnoremap ? ?\v
 nnoremap * *\v
 nnoremap # #\v
 nnoremap :%s/ :%s/\v
-
-
-"**************************************************
-" Plugins
-"**************************************************
-
-if filereadable( expand( '~/.vim/neobundle.vimrc' ) ) && filereadable( expand( '~/.vim/bundle/neobundle.vim/README.md' ) )
-    source ~/.vim/neobundle.vimrc
-else
-    echo "Type 'git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim'."
-endif
 
 
 "**************************************************
