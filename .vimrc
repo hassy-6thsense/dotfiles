@@ -66,14 +66,15 @@ endif
 " Color
 "**************************************************
 
+" Individual settings
+autocmd ColorScheme * highlight DiffAdd    ctermfg=255 ctermbg=28
+autocmd ColorScheme * highlight DiffChange ctermfg=255 ctermbg=20
+autocmd ColorScheme * highlight DiffDelete ctermfg=255 ctermbg=88
+autocmd ColorScheme * highlight DiffText   ctermfg=255 ctermbg=136 cterm=bold
+autocmd ColorScheme * highlight Comment    ctermfg=243
+
 " Select colorscheme
 colorscheme pablo
-
-" Individual settings
-autocmd ColorScheme * highlight DiffAdd     ctermfg=black ctermbg=2
-autocmd ColorScheme * highlight DiffChange  ctermfg=black ctermbg=7
-autocmd ColorScheme * highlight DiffDelete  ctermfg=black ctermbg=6
-autocmd ColorScheme * highlight DiffText    ctermfg=white ctermbg=5 cterm=bold
 
 
 "**************************************************
